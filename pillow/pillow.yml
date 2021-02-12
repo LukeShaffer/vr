@@ -7,7 +7,8 @@ spec:
     - name: pillow
       command:
         - "/bin/bash"
-        - "-i"
+        - "-c"
+        - "export RUN_FUZZER_MODE=interactive; export FUZZING_ENGINE=libfuzzer; export SANITIZER=address; export OUT=/shared/591/syntax/vr/pillow; run_fuzzer fuzz_pillow"
       image: r00tus3r/base-runner
       imagePullPolicy: Always
       stdin: true
