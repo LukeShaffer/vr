@@ -2,6 +2,14 @@
 ### To create the pod for fuzzing pillow on the cluster
 `kubectl create -f pillow.yml`
 
+### Copy fuzzer and seed files onto the cluster
+##### Note: Use the pod `nfs-test` to get the info related to storage
+##### Note: Directory for team syntax: /shared/591/syntax/
+```
+exec pillow -- git clone https://github.com/r00tus3r/vr.git /shared/591/syntax/vr
+
+```
+
 ### To get the logs
 `pod_logs pod/pillow`
 
