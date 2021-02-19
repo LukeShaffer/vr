@@ -8,7 +8,7 @@ spec:
       command:
         - "/bin/bash"
         - "-c"
-        - "export RUN_FUZZER_MODE=interactive; export FUZZING_ENGINE=libfuzzer; export SANITIZER=address; export OUT=/shared/591/syntax/vr/gdal; run_fuzzer gtiff_fuzzer -jobs=200"
+        - "/shared/591/syntax/vr/gdal/run.sh"
       image: r00tus3r/base-runner
       imagePullPolicy: Always
       stdin: true
@@ -19,10 +19,10 @@ spec:
       resources:
         limits:
           cpu: "40"
-          memory: 20Gi
+          memory: 60Gi
         requests:
           cpu: "40"
-          memory: 10Gi
+          memory: 50Gi
       securityContext:
         privileged: false
   restartPolicy: Never

@@ -8,8 +8,8 @@ spec:
       command:
         - "/bin/bash"
         - "-c"
-        - "export RUN_FUZZER_MODE=interactive; export FUZZING_ENGINE=libfuzzer; export SANITIZER=address; export OUT=/shared/591/syntax/vr/pillow; run_fuzzer fuzz_pillow"
-      image: r00tus3r/base-runner
+        - "/shared/591/syntax/vr/pillow/run.sh"
+      image: r00tus3r/base-runner:latest
       imagePullPolicy: Always
       stdin: true
       tty: true
