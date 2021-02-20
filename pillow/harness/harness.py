@@ -1,10 +1,15 @@
 from util import image_formats
+import os
 
 
 def TestOneInput(data):
 	try:
-		with Image.open(io.BytesIO(data)) as im:
-			for im_format in image_formats:
+		for im_format in image_formats:
+			filename = os.path.join('images', 'fuzz_data.'+im_format)
+			with open(filename, 'wb') as file:
+				file.write(data)
+
+			with Image.open(filename) as im:
 				im.filter(ImageFilter.DETAIL)
 				im.save(io.BytesIO(), im_format)
 
